@@ -3,6 +3,7 @@
 **Materia:** Programación Avanzada (189)
 **Carrera:** Licenciatura en Ciencia de Datos
 **Universidad:** Universidad Nacional Guillermo Brown (UNAB)
+
 ---
 
 ## Ejercicio 1 — Críticas a los patrones de diseño
