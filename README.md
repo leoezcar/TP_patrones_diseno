@@ -3,9 +3,6 @@
 **Materia:** Programación Avanzada (189)
 **Carrera:** Licenciatura en Ciencia de Datos
 **Universidad:** Universidad Nacional Guillermo Brown (UNAB)
-**Docentes:** Lic. Felipe Morales y APU Gianluca Piriz
-**Unidad:** II — Clase N°10
-
 ---
 
 ## Ejercicio 1 — Críticas a los patrones de diseño
