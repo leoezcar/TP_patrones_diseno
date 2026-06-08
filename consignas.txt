@@ -1,0 +1,67 @@
+Clase 10 — Programación Avanzada (UNAB) | Patrones de Diseño
+Contexto de la clase
+Materia: Programación Avanzada (189), Licenciatura en Ciencia de Datos, Universidad Nacional Guillermo Brown. Docentes: Lic. Felipe Morales y APU Gianluca Piriz. Esta es la Clase N°10, correspondiente a la Unidad II.
+
+T1: Patrones de Diseño — Contenido Teórico
+¿Qué son?
+Los patrones de diseño (design patterns) son soluciones reutilizables y probadas a problemas recurrentes en el diseño de software. No son código concreto sino plantillas o "planos" que se adaptan a cada situación particular. Su principal ventaja es que constituyen un vocabulario común entre desarrolladores, facilitando la comunicación dentro de un equipo.
+¿Por qué aprenderlos?
+Es posible programar durante años sin conocerlos formalmente, incluso aplicándolos sin saberlo. Sin embargo, estudiarlos tiene valor porque entrenan al programador en el pensamiento orientado a objetos y en la resolución sistemática de problemas de diseño.
+Clasificación por nivel de abstracción
+Los patrones varían en complejidad y escala:
+
+Idioms: patrones de bajo nivel, específicos a un lenguaje de programación.
+Patrones de arquitectura: patrones de alto nivel, aplicables en cualquier lenguaje y capaces de definir la arquitectura completa de una aplicación.
+
+Clasificación por propósito (los tres grupos principales)
+1. Patrones Creacionales — Se ocupan del proceso de creación de objetos, incrementando la flexibilidad y reutilización del código. Incluyen:
+
+Factory Method: interfaz para crear objetos en una superclase, dejando que las subclases decidan el tipo concreto.
+Abstract Factory: producción de familias de objetos relacionados sin especificar sus clases concretas.
+Builder: construcción de objetos complejos paso a paso, permitiendo distintas representaciones con el mismo proceso.
+Prototype: clonación de objetos existentes sin depender de sus clases.
+Singleton: garantiza que una clase tenga una única instancia y provee un punto de acceso global a ella.
+
+2. Patrones Estructurales — Tratan cómo se ensamblan objetos y clases en estructuras mayores manteniendo flexibilidad y eficiencia. Incluyen:
+
+Adapter: permite colaboración entre objetos con interfaces incompatibles.
+Bridge: divide una clase grande en dos jerarquías (abstracción e implementación) que pueden evolucionar independientemente.
+Composite: composición de objetos en estructuras de árbol, tratando objetos individuales y compuestos de manera uniforme.
+Decorator: agrega funcionalidades a objetos envolviéndolos en objetos encapsuladores especiales.
+Facade: interfaz simplificada para un subsistema complejo.
+Flyweight: optimización de memoria compartiendo partes comunes del estado entre múltiples objetos.
+Proxy: sustituto o intermediario que controla el acceso a otro objeto.
+
+3. Patrones de Comportamiento — Gestionan la comunicación y asignación de responsabilidades entre objetos. Incluyen:
+
+Chain of Responsibility: pasa solicitudes a lo largo de una cadena de manejadores hasta que alguno la procese.
+Command: encapsula una solicitud como objeto independiente.
+Iterator: recorre colecciones sin exponer su representación interna.
+Mediator: reduce dependencias directas entre objetos forzándolos a comunicarse a través de un mediador.
+Memento: guarda y restaura el estado previo de un objeto sin revelar detalles de implementación.
+Observer: define un mecanismo de suscripción para notificar a múltiples objetos sobre eventos.
+State: permite que un objeto cambie su comportamiento cuando cambia su estado interno.
+Strategy: define una familia de algoritmos intercambiables encapsulados en clases separadas.
+Template Method: define el esqueleto de un algoritmo en la superclase y permite que las subclases redefinan pasos sin cambiar la estructura.
+Visitor: separa algoritmos de los objetos sobre los que operan.
+
+Total: 22 patrones clásicos (según el catálogo de la Gang of Four / refactoring.guru).
+
+T2: Actividad Práctica — Ejercicios a Realizar
+Ejercicio 1
+Investigar y documentar críticas a los patrones de diseño. Incluir ejemplos concretos de situaciones donde los patrones han sido cuestionados, mal aplicados o considerados innecesariamente complejos.
+Ejercicio 2
+Seleccionar 3 patrones de diseño (idealmente uno de cada categoría: creacional, estructural y de comportamiento) e implementarlos en Python con ejemplos concretos y funcionales de uso.
+Ejercicio 3
+Identificar 3 problemas habituales de la vida cotidiana en los que se podría aplicar algún patrón de diseño, describiendo qué patrón sería apropiado y por qué.
+Ejercicio 4
+Investigar que los patrones de diseño tienen distintos nombres según la fuente o contexto, y armar una tabla que relacione los distintos nombres alternativos que recibe cada patrón.
+Ejercicio 5
+Definir y explicar qué son los antipatrones de diseño (anti-patterns), y ejemplificar con casos concretos.
+
+Material de referencia indicado por la cátedra
+
+Patrones en general (ES): https://refactoring.guru/es/design-patterns/what-is-pattern
+Patrones en Python: https://refactoring.guru/es/design-patterns/python
+Principios SOLID: https://profile.es/blog/principios-solid-desarrollo-software-calidad/
+Colab con ejemplos de la cátedra: https://drive.google.com/file/d/1nvGbbA3wgDuIk-lvacIRLeZl0JqxCCBz/view?usp=sharing
