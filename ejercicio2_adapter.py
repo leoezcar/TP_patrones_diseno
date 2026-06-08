@@ -1,102 +1,75 @@
 """
 Ejercicio 2 — Patrón Adapter (Estructural)
-Sensores de temperatura con interfaces incompatibles (°F, K → °C).
+Sensores de temperatura con interfaces incompatibles (°F, K -> °C).
 """
-
-from abc import ABC, abstractmethod
-
-
-# Interfaz estándar que nuestro sistema espera
-class SensorTemperatura(ABC):
-    @abstractmethod
-    def obtener_temperatura_celsius(self) -> float:
-        pass
-
-    @abstractmethod
-    def obtener_nombre(self) -> str:
-        pass
 
 
 # Sensor compatible (ya reporta en Celsius)
-class SensorArgentino(SensorTemperatura):
-    def __init__(self, nombre: str, temperatura: float):
-        self._nombre = nombre
-        self._temperatura = temperatura
+class SensorArgentino:
+    def __init__(self, nombre, temperatura):
+        self.nombre = nombre
+        self.temperatura = temperatura
 
-    def obtener_temperatura_celsius(self) -> float:
-        return self._temperatura
+    def obtener_temperatura_celsius(self):
+        return self.temperatura
 
-    def obtener_nombre(self) -> str:
-        return self._nombre
+    def obtener_nombre(self):
+        return self.nombre
 
 
 # Sensor americano — interfaz incompatible (Fahrenheit)
 class SensorAmericano:
-    def __init__(self, sensor_id: str, temp_f: float):
-        self._sensor_id = sensor_id
-        self._temp_f = temp_f
-
-    def get_temperature_fahrenheit(self) -> float:
-        return self._temp_f
-
-    def get_sensor_id(self) -> str:
-        return self._sensor_id
+    def __init__(self, sensor_id, temp_f):
+        self.sensor_id = sensor_id
+        self.temp_f = temp_f
 
 
-# Sensor científico — interfaz incompatible (Kelvin)
+# Sensor cientifico — interfaz incompatible (Kelvin)
 class SensorCientifico:
-    def __init__(self, codigo: str, temp_kelvin: float):
-        self._codigo = codigo
-        self._temp_kelvin = temp_kelvin
-
-    def leer_kelvin(self) -> float:
-        return self._temp_kelvin
-
-    def codigo_sensor(self) -> str:
-        return self._codigo
+    def __init__(self, codigo, temp_kelvin):
+        self.codigo = codigo
+        self.temp_kelvin = temp_kelvin
 
 
-# Adapter: Fahrenheit → Celsius
-class AdaptadorSensorAmericano(SensorTemperatura):
-    def __init__(self, sensor: SensorAmericano):
+# Adapter: Fahrenheit -> Celsius
+class AdaptadorSensorAmericano:
+    def __init__(self, sensor):
         self._sensor = sensor
 
-    def obtener_temperatura_celsius(self) -> float:
-        return round((self._sensor.get_temperature_fahrenheit() - 32) * 5 / 9, 2)
+    def obtener_temperatura_celsius(self):
+        return round((self._sensor.temp_f - 32) * 5 / 9, 2)
 
-    def obtener_nombre(self) -> str:
-        return f"[Adaptado US] {self._sensor.get_sensor_id()}"
+    def obtener_nombre(self):
+        return f"[Adaptado US] {self._sensor.sensor_id}"
 
 
-# Adapter: Kelvin → Celsius
-class AdaptadorSensorCientifico(SensorTemperatura):
-    def __init__(self, sensor: SensorCientifico):
+# Adapter: Kelvin -> Celsius
+class AdaptadorSensorCientifico:
+    def __init__(self, sensor):
         self._sensor = sensor
 
-    def obtener_temperatura_celsius(self) -> float:
-        return round(self._sensor.leer_kelvin() - 273.15, 2)
+    def obtener_temperatura_celsius(self):
+        return round(self._sensor.temp_kelvin - 273.15, 2)
 
-    def obtener_nombre(self) -> str:
-        return f"[Adaptado Lab] {self._sensor.codigo_sensor()}"
+    def obtener_nombre(self):
+        return f"[Adaptado Lab] {self._sensor.codigo}"
 
 
-# Sistema que trabaja solo con la interfaz estándar
+# Sistema que trabaja con cualquier objeto que tenga los metodos esperados
 class SistemaMonitoreo:
     def __init__(self):
         self._sensores = []
 
-    def registrar_sensor(self, sensor: SensorTemperatura):
+    def registrar_sensor(self, sensor):
         self._sensores.append(sensor)
 
     def reporte(self):
         for sensor in self._sensores:
-            nombre = sensor.obtener_nombre()
-            temp = sensor.obtener_temperatura_celsius()
-            print(f"  {nombre}: {temp}°C")
+            print(f"  {sensor.obtener_nombre()}: {sensor.obtener_temperatura_celsius()} C")
 
 
 if __name__ == "__main__":
-    # Sensores de distintos orígenes
+    # Sensores de distintos origenes
     sensor_arg = SensorArgentino("Sensor Buenos Aires", 25.5)
     sensor_usa = SensorAmericano("US-Sensor-NYC", 98.6)
     sensor_lab = SensorCientifico("LAB-K-001", 310.15)

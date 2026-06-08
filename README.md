@@ -25,7 +25,7 @@ resultado = ordenar_datos(mis_datos, sorted)
 
 Graham argumenta que los patrones son evidencia de un lenguaje insuficientemente poderoso. Compara al programador que aplica patrones manualmente con un "compilador humano": repite transformaciones mecánicas que un lenguaje más expresivo haría automáticamente mediante macros o funciones de primera clase.
 
-### "Pattern-itis" — Sobreingeniería
+### Sobreingeniería
 
 Uno de los problemas más comunes en la industria es aplicar patrones donde no son necesarios. Por ejemplo, usar un Factory Method para crear objetos simples que podrían instanciarse directamente con el constructor:
 
@@ -36,8 +36,6 @@ animal = AnimalFactory().create_animal("perro")
 # Suficiente en la mayoría de los casos:
 animal = Perro()
 ```
-
-Esto viola el principio **YAGNI** (You Ain't Gonna Need It): no agregues complejidad hasta que realmente la necesites.
 
 ### El Singleton como antipatrón encubierto
 
@@ -138,32 +136,23 @@ Un **antipatrón** es una respuesta frecuente a un problema recurrente que parec
 
 ### God Object (Objeto Dios)
 
-Una clase que concentra demasiadas responsabilidades, convirtiéndose en el centro de todo el sistema. Ejemplo: una clase `SistemaCompleto` que maneja BD, autenticación, emails, reportes y pagos. **Solución:** aplicar el Principio de Responsabilidad Única (SRP), separar en clases especializadas.
+Una clase que concentra demasiadas responsabilidades, convirtiéndose en el centro de todo el sistema. Ejemplo: una clase `SistemaCompleto` que maneja BD, autenticación, emails, reportes y pagos.
 
 ### Spaghetti Code
 
-Código con flujo de control enredado, sin estructura clara, con niveles excesivos de anidamiento y lógica que salta de un lugar a otro. **Solución:** funciones pequeñas con un solo propósito, nombres descriptivos, early return para evitar anidamiento.
+Código con flujo de control enredado, sin estructura clara, con niveles excesivos de anidamiento y lógica que salta de un lugar a otro.
 
 ### Golden Hammer (Martillo de Oro)
 
-*"Si lo único que tenés es un martillo, todo te parece un clavo."* Usar una herramienta o tecnología conocida para todos los problemas sin evaluar alternativas. Ejemplo: implementar toda la lógica de negocio como stored procedures en la BD porque "ya sabemos SQL". **Solución:** evaluar cada problema objetivamente, ampliar el repertorio de herramientas.
+Usar una herramienta o tecnología conocida para todos los problemas sin evaluar alternativas. Ejemplo: implementar toda la lógica de negocio como stored procedures en la BD porque "ya sabemos SQL".
 
 ### Copy-Paste Programming
 
-Duplicar código en vez de crear abstracciones reutilizables. Un bug en la lógica original se replica en todas las copias, y un cambio (como la tasa de IVA) debe buscarse en todo el proyecto. **Solución:** principio DRY (Don't Repeat Yourself), extraer lógica común en funciones/módulos.
+Duplicar código en vez de crear abstracciones reutilizables. Un bug en la lógica original se replica en todas las copias, y un cambio (como la tasa de IVA) debe buscarse en todo el proyecto.
 
 ### Lava Flow (Flujo de Lava)
 
-Código obsoleto que permanece en el proyecto porque nadie se atreve a eliminarlo. Como la lava que se enfría y endurece, el código muerto se solidifica y nadie lo toca. **Solución:** usar control de versiones (Git permite recuperar cualquier cosa del historial), code reviews periódicas, herramientas de cobertura de código.
-
-### Principios para evitar antipatrones
-
-- **SRP** — Principio de Responsabilidad Única
-- **DRY** — Don't Repeat Yourself
-- **KISS** — Keep It Simple, Stupid
-- **YAGNI** — You Ain't Gonna Need It
-
----
+Código obsoleto que permanece en el proyecto porque nadie se atreve a eliminarlo. Como la lava que se enfría y endurece, el código muerto se solidifica y nadie lo toca.
 
 ## Material de referencia
 
